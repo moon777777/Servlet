@@ -2,6 +2,8 @@ package com.marondal.servlet.servlet.ex;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -46,6 +48,8 @@ public class Ex05Controller extends HttpServlet {
 				+ "	</body>\n"
 				+ "</html>"
 				);
+		
+		
 		
 	}
 
