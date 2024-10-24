@@ -10,7 +10,7 @@
 	<form method="post" action="/jsp/ex/ex03.jsp">
 		<label>닉네임 : </label><input type = "text" name = "nickname"> 
 		<br>
-		<!-- 라이도 버튼 -->
+		<!-- 라디오 버튼 -->
 		<h3>좋아하는 동물 하나를 고르세요!</h3>
 		<label>강아지<input type = "radio" name="animal" value = "dog"></label>
 		<label>고양이<input type = "radio" name = "animal" value = "cat"></label>

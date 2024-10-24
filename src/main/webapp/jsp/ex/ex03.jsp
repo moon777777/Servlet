@@ -27,12 +27,15 @@
 		for(int i = 0; i < foodArray.length; i++) {
 			foodString += foodArray[i] + " ";
 		}
+		
+		
 	%>
 	
 	<h3><%= nickname %></h3>
 	<h3><%= animal %></h3>
 	<h3><%= fruit %></h3>
 	<h3><%= foodString %></h3>
+	
 
 </body>
 </html>
