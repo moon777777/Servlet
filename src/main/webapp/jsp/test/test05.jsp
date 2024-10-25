@@ -8,41 +8,41 @@
 </head>
 <body>
 
-	<%
-		String numberString = request.getParameter("number");
-		String[] unitStringArray = request.getParameterValues("unit");
+	<div class="container">
+		<h2>변환 결과</h2>
 		
-		int number = Integer.parseInt(numberString);
+		<%
+			int cm = Integer.parseInt(request.getParameter("cm"));
 		
-		double m = number / 100.0;
-		double yd = number / 91.44;
-		double ft = number / 30.482;
-		double in = number / 2.54;
-		
-		double result = 0;
-		String unitString = "";
-		for(int i = 0; i < unitStringArray.length; i++) {		
-			if(unitStringArray[i].equals("m")) {
-				result = m;
-			} else if(unitStringArray[i].equals("ft")) {
-				result = ft;
-			} else if(unitStringArray[i].equals("yd")) {
-				result = yd;
-			} else if(unitStringArray[i].equals("in")) {
-				result = in;
+			// 인치, 야드, 피트, 미터
+			// inch, yard, feet, meter
+			String[] units = request.getParameterValues("unit");
+			
+			String result = "";
+			for(int i = 0; i < units.length; i++) {
+				String unit = units[i];
+				
+				if(unit.equals("inch")) {					
+					double inch = cm * 0.39;
+					result += inch + "in<br>\n";
+				} else if(unit.equals("yard")) {
+					double yard = cm * 0.010936133;
+					result += yard + "yd<br>\n";
+				} else if(unit.equals("feet")) {
+					double feet = cm * 0.032808399;
+					result += feet + "ft<br>\n";
+				} else if(unit.equals("meter")) {
+					double meter = cm / 100.0;
+					result += meter + "m<br>\n";
+				}
 			}
-			unitString += result + unitStringArray[i] + "<br>";			
-		}
+			
+		%>
 		
-		
-	
-	%>
-	
-	<div>
-		<h3>변환결과</h3>
-		<div><%=number %>cm</div>
+		<h3><%= cm %>cm</h3>
 		<hr>
-		<div><%= unitString %></div>
+		<h3><%= result %></h3>
+	
 	</div>
 	
 

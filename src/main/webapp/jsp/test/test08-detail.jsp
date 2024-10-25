@@ -5,9 +5,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>책 목록</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<title>책</title>
 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
 	<%
@@ -55,30 +55,30 @@
 	        } 
 	    };
 	    list.add(map);
+	    
+	    // 하나의 책을 지칭할 수 있는 값을 파라미터로 전달 받는다.
+	    
+	    int id = Integer.parseInt(request.getParameter("id"));
+	    
 	%>
 	
 	<div class = "container">
-		<h1 class = "text-center">책 목록</h1>
-			<table class = "table text-center">
-				<thead>
-					<tr>
-						<th>id</th>
-						<th>표지</th>
-						<th>제목</th>
-					</tr>
-				</thead>
-				<tbody>
-					<% for(Map<String, Object> book : list) { %>
-					<tr>
-						<td><%= book.get("id") %></td>
-						<td><img alt = "책표지" width = "120" src = "<%= book.get("image") %>"></td>
-						<td><a href = "http://localhost:8080/jsp/test/test08-detail.jsp?id=<%= book.get("id")%>" class = "display-4"><%= book.get("title") %></a></td>
-					</tr>
-				<%} %>	
-				</tbody>
-			</table>
+	<% for(Map<String, Object> book : list) {
+		if(id == (Integer)book.get("id")) {
+		%>
+		<div class = "d-flex">
+			<div>
+				<img alt = "책표지" src = <%= book.get("image") %>>		
+			</div>
+			<div class = "ml-4">
+				<div class = "display-1 font-weight-bold"><%= book.get("title")%></div>
+				<div class = "display-2 text-info mt-3"><%= book.get("author")%></div>
+				<div class = "display-4 mt-2"><%= book.get("publisher")%></div>		
+			</div>
+		</div>
+		<% } %>		
+	<% } %>
 	</div>
-
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
