@@ -96,12 +96,12 @@
     
     <div id = "wrap">
 		<header class="d-flex align-items-center my-4">
-			<h2 class = "text-success mr-1">Melong</h2>
+			<h2 class = "text-success mr-1"><a class = "text-success" href="http://localhost:8080/jsp/test/test10/melong.jsp">Melong</a></h2>
 	             <%for(Map<String, Object> music :musicList) { %>
-				<form method="post" action="/jsp/test/test10/melong-detail.jsp?id=<%=music.get("id") %>">
+				<form class = "col-5" method="post" action="/jsp/test/test10/melong-detail.jsp?id=<%=music.get("id") %>">
 				<%} %>
 		             <div class="d-flex input-group">
-		                 <input type="text" name = "search" class="form-control ml-5 col-10">
+		                 <input type="text" name = "search" class="form-control ml-5">
 		                 <div class="input-group-append"> 
 		                     <button type="submit" class="btn btn-info">검색</button>                    
 		                 </div>
@@ -111,11 +111,11 @@
 		<nav>
 		<div class = "mt-3">
 	            <ul class="nav nav-fill">
-	                <li class="ml-3 font-weight-bold">멜롱차트</li>
-	                <li class="ml-4 font-weight-bold">최신음악</li>
-	                <li class="ml-4 font-weight-bold">장르음악</li>
-	                <li class="ml-4 font-weight-bold">멜롱DJ</li>
-	                <li class="ml-4 font-weight-bold">뮤직어워드</li>
+	               <li class="ml-3 font-weight-bold"><a class = "nav link text-dark" href="#">멜롱차트</a></li>
+	                <li class="ml-4 font-weight-bold"><a class = "nav link text-dark" href="#">최신음악</a></li>
+	                <li class="ml-4 font-weight-bold"><a class = "nav link text-dark" href="#">장르음악</a></li>
+	                <li class="ml-4 font-weight-bold"><a class = "nav link text-dark" href="#">멜롱DJ</a></li>
+	                <li class="ml-4 font-weight-bold"><a class = "nav link text-dark" href="#">뮤직어워드</a></li>
 	            </ul>
         	</div>
 		</nav>
@@ -124,7 +124,7 @@
 			<%for(Map<String, Object> music :musicList) {
 				if(search == null && id == (Integer)music.get("id") || search != null && search.equals((String)music.get("title"))) {
 			%>				
-				<div class = "d-flex align-items-center ml-3">
+				<div class = "d-flex align-items-center p-3">
 					<img alt = "앨범표지" width = "170" src = <%= music.get("thumbnail") %>>		
 				</div>
 				<div class = "mt-3 ml-4">
