@@ -14,13 +14,13 @@ import com.marondal.servlet.common.MysqlService;
 public class bookmarkController extends HttpServlet {
 	
 	@Override
-	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
 		
 		String name = request.getParameter("name");
 		String url = request.getParameter("url");
 		
-		MysqlService mysqlService = new MysqlService();
+		MysqlService mysqlService = MysqlService.getInstance();
 		
 		mysqlService.connect();
 		

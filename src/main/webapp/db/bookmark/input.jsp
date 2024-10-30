@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-	<form method = "get" action ="/db/bookmark/create">
+	<form method = "post" action ="/db/bookmark/create">
 		<div class = container>
 			<h2>즐겨찾기 추가</h2>
 			<label>사이트명 : </label><input class = "form-control col-3" type = "text" name = "name">

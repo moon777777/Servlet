@@ -15,12 +15,12 @@ public class bookmarkDelete extends HttpServlet {
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
-		 String name = request.getParameter("name"); // 삭제할 북마크 ID
+		 String id = request.getParameter("id"); 
 	        
-	        MysqlService mysqlService = new MysqlService();
+	        MysqlService mysqlService = MysqlService.getInstance();
 	        mysqlService.connect();
 	        
-	        String query = "DELETE FROM `bookmark` WHERE `name` = '" + name + "';";
+	        String query = "DELETE FROM `bookmark` WHERE `id` = '" + id + "';";
 	        mysqlService.update(query);
 	        
 	        mysqlService.disconnect();

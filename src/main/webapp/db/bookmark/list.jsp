@@ -14,7 +14,7 @@
 		MysqlService mysqlService = new MysqlService();
 		mysqlService.connect();
 		
-		List<Map<String, Object>> bookmarkList = mysqlService.select("SELECT * FROM `bookmark`;");
+		List<Map<String, Object>> bookmarkList = mysqlService.select("SELECT * FROM `bookmark` ORDER BY `id` DESC;");
 		
 		mysqlService.disconnect();
 	%>
@@ -33,7 +33,7 @@
 				<tr>
 					<td><%=bookmark.get("name") %></td>
 					<td><a href = "<%=bookmark.get("url") %>"><%=bookmark.get("url") %></a></td>
-					<td><a href = "/db/bookmark/delete?name=<%=bookmark.get("name") %>">삭제</a></td>
+					<td><a href = "/db/bookmark/delete?id=<%=bookmark.get("id") %>" class = "btn btn-danger">삭제</a></td>
 				</tr>
 			<%} %>
 			</tbody>

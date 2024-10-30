@@ -13,7 +13,25 @@ import java.util.Map;
 
 public class MysqlService {
 	
+	// 클래스를 설계하는 입장에서
+	// 해당 클래스에 대한 객체 생성을 직접 관리하고,
+	// 하나의 객체를 공유해서 사용하도록 구성한다.
+	// Singleton pattern (Design pattern)
+	private static MysqlService mysqlService = null;
+	
 	private Connection connection;
+	
+	// 자신 클래스에 대한 객체를 돌려주는 메소드
+	// static : 객체 생성 없이 사용하도록 하는 메소드, 멤버 변수
+	public static MysqlService getInstance() {
+		
+		
+		if(mysqlService == null) {
+			mysqlService = new MysqlService();			
+		}
+		
+		return mysqlService;
+	}
 	
 	// 접속 기능
 	public void connect() {
